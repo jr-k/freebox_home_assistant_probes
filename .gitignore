@@ -1,0 +1,4 @@
+.idea
+*.pyc
+app_auth.json
+app_infos.json
