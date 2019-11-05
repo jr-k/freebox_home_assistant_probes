@@ -3,7 +3,7 @@ FBX
 
 About:
 
-- It is a simple server which give access to multiple useful sensors. The output is a clean flattened json object perfect for [RESTful Sensor](https://www.home-assistant.io/integrations/rest/) integration 
+- It is a simple server which give access to multiple useful sensors. The output is a clean flattened json object perfect for [RESTful Sensor](https://www.home-assistant.io/integrations/rest/) integration. You can install this on a Freebox VM or on a raspberrypi for example.
 
 Installation:
 
