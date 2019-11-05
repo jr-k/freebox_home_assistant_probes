@@ -159,6 +159,7 @@ Wants=network-online.target
 After=network.target
 
 [Service]
+WorkingDirectory=/opt/freebox_home_assistant_probe
 ExecStart=/usr/bin/python3 /opt/freebox_home_assistant_probes/main.py
 Restart=always
 RestartSec=5
