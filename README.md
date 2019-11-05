@@ -10,7 +10,7 @@ Installation:
 - `cd /opt`
 - `git clone https://github.com/jr-k/freebox_home_assistant_probes`
 - `cd freebox_home_assistant_probes`
-- `cp app_infos.json.dist app_infos.json`
+- `cp app_infos.json.dist app_infos.json` (you can edit informations inside this file)
 - `pip install -r requirements.txt` (or `pip3`)
 - `python3 main.py`
 - On first launch you'll have to grant access to the freebox by touching the check mark on the device
