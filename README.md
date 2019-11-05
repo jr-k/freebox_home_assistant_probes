@@ -11,7 +11,7 @@ Installation:
 
 Output:
 
-```json
+```python
 {
   "system_temp_sw": 43,
   "system_user_main_storage": "Disque 1",
@@ -37,7 +37,7 @@ Output:
   "connection_ipv4_port_range": [0, 16383],
   "connection_rate_up": 1430,
   "connection_bandwidth_up": 600000000,
-  "connection_ipv6: "1b02:f0b:11f:ffff:":1",
+  "connection_ipv6: "ffff:ffff:fff:ffff:":1",
   "connection_bandwidth_down": 10000000000,
   "connection_media": "ftth",
   "connection_state": "up",
