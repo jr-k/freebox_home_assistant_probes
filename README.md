@@ -145,7 +145,7 @@ sensor:
       - disk0_partition0_path
 ```
 
-Start Server API as a service (start on boot):
+Start Server API as a service (start on boot with `systemd`):
 
 ```
 sudo nano /lib/systemd/system/freebox-probes.service
