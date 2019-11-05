@@ -1,11 +1,16 @@
 FBX
 ===
 
+About:
+
+- It is a simple server which give access to multiple useful sensors. The output is a clean flattened json object perfect for [RESTful Sensor](https://www.home-assistant.io/integrations/rest/) integration 
+
 Installation:
 
+- `cd /opt`
 - `git clone https://github.com/jr-k/freebox_home_assistant_probes`
 - `cp app_infos.json.dist app_infos.json`
-- `pip install -r requirements.txt`
+- `pip install -r requirements.txt` (or `pip3`)
 - `python3 main.py`
 - On first launch you'll have to grant access to the freebox by touching the check mark on the device
 - You can check [http://localhost:9876/probes](http://localhost:9876/probes)
@@ -71,3 +76,103 @@ Output:
   "disk0_partition0_path": "A1Sab1F1GTBz"
 }
 ```
+
+HomeAssistant Sensor Configuration:
+
+```yaml
+sensor:
+  - platform: rest
+    resource: http://your_server_host:9876/probes
+    name: FREEBOX sensors
+    value_template: '{{ value_json.connection_ipv4 }}'
+    scan_interval: 10
+    json_attributes:
+      - system_temp_sw
+      - system_user_main_storage
+      - system_temp_cpu_cp_slave
+      - system_mac
+      - system_box_flavor
+      - system_temp_cpu_cp_master
+      - system_fan_rpm
+      - system_temp_cpum
+      - system_temp_cpu_ap
+      - system_disk_status
+      - system_temp_hdd2
+      - system_temp_cpub
+      - system_uptime
+      - system_uptime_val
+      - system_board_name
+      - system_box_authenticated
+      - system_serial
+      - system_firmware_version
+      - connection_type
+      - connection_rate_down
+      - connection_bytes_up
+      - connection_ipv4_port_range
+      - connection_rate_up
+      - connection_bandwidth_up
+      - connection_ipv6
+      - connection_bandwidth_down
+      - connection_media
+      - connection_state
+      - connection_bytes_down
+      - connection_ipv4
+      - disk0_type
+      - disk0_total_bytes
+      - disk0_connector
+      - disk0_id
+      - disk0_active_duration
+      - disk0_idle_duration
+      - disk0_state
+      - disk0_idle
+      - disk0_spinning
+      - disk0_model
+      - disk0_table_type
+      - disk0_temp
+      - disk0_serial
+      - disk0_firmware
+      - disk0_partition0_fstype
+      - disk0_partition0_total_bytes
+      - disk0_partition0_label
+      - disk0_partition0_id
+      - disk0_partition0_internal
+      - disk0_partition0_fsck_result
+      - disk0_partition0_state
+      - disk0_partition0_disk_id
+      - disk0_partition0_free_bytes
+      - disk0_partition0_used_bytes
+      - disk0_partition0_path
+```
+
+Start Server API as a service (start on boot):
+
+```
+sudo nano /lib/systemd/system/freebox-probes.service
+```
+
+- Change the configuration file according to your system, especially the `ExecStart` value
+```
+[Unit]
+Description=Freebox Probes
+Wants=network-online.target
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/freebox_home_assistant_probes/main.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+- Restart the daemon
+`sudo systemctl daemon-reload`
+
+- Enable the service with
+`sudo systemctl enable freebox-probes`
+
+- Start the service with
+`sudo systemctl start freebox-probes`
+
+- That's it, the server is now running in background silently and will be started automatically if you reboot.
+
