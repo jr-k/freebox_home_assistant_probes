@@ -7,6 +7,7 @@ Installation:
 - `cp app_infos.json.dist app_infos.json`
 - `pip install -r requirements.txt`
 - `python3 main.py`
+- On first launch you'll have to grant access to the freebox by touching the check mark on the device
 - You can check [http://localhost:9876/probes](http://localhost:9876/probes)
 
 Output:
