@@ -14,7 +14,7 @@ Installation:
 - `pip install -r requirements.txt` (or `pip3`)
 - `python3 main.py`
 - On first launch you'll have to grant access to the freebox by touching the check mark on the device
-- You can check [http://localhost:9876/probes](http://localhost:9876/probes)
+- You can check [http://localhost:9876/probes](http://localhost:9876/probes) (`localhost` or the hostname/ip of the device)
 
 Output:
 
