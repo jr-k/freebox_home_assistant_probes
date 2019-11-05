@@ -11,12 +11,12 @@ Installation:
 
 Output:
 
-```python
+```json
 {
   "system_temp_sw": 43,
   "system_user_main_storage": "Disque 1",
   "system_temp_cpu_cp_slave": 76,
-  "system_mac: "AB:CD:EF:12:34:56",
+  "system_mac": "AB:CD:EF:12:34:56",
   "system_box_flavor": "light",
   "system_temp_cpu_cp_master": 76,
   "system_fan_rpm": 1406,
@@ -37,7 +37,7 @@ Output:
   "connection_ipv4_port_range": [0, 16383],
   "connection_rate_up": 1430,
   "connection_bandwidth_up": 600000000,
-  "connection_ipv6: "ffff:ffff:fff:ffff:":1",
+  "connection_ipv6": "1ab4:cdead:beef:934a::1",
   "connection_bandwidth_down": 10000000000,
   "connection_media": "ftth",
   "connection_state": "up",
