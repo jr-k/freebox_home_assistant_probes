@@ -1,6 +1,10 @@
 FBX
 ===
 
+Known issues (TODO):
+
+- This script doesn't handle token expiration so for now the /probe route will trigger an error due to expiration json answer
+
 About:
 
 - It is a simple server which gives access to multiple useful sensors. The output is a clean flattened json object perfect for [RESTful Sensor](https://www.home-assistant.io/integrations/rest/) integration. You can install this on a Freebox VM or on a raspberrypi for example.
