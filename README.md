@@ -1,9 +1,9 @@
 FBX
 ===
 
-Known issues (TODO):
+Known issue:
 
-- This script doesn't handle token expiration so for now the /probe route will trigger an error due to expiration json answer
+- This script doesn't handle token expiration so for now the /probe route will trigger an error due to expiration json answer. You can fix it by `crontab -e` and by inserting `*/5 * * * * systemctl restart freebox-probes` at the end
 
 About:
 
